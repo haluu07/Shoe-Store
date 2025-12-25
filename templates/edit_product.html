@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/edit_product.css') }}" />
+<div class="edit-product-container container mt-5">
+    <h2 class="text-center mb-4">Edit Product: {{ product.name }}</h2>
+
+    <!-- Display notifications -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Product edit form -->
+    <form method="POST" enctype="multipart/form-data" class="edit-product-form">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            <label for="name" class="form-label">Product Name</label>
+            {{ form.name(class="form-control", id="name") }}
+            {% if form.name.errors %}
+                {% for error in form.name.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            {{ form.price(class="form-control", id="price") }}
+            {% if form.price.errors %}
+                {% for error in form.price.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            {{ form.description(class="form-control", id="description", rows=5) }}
+            {% if form.description.errors %}
+                {% for error in form.description.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            {{ form.category(class="form-control", id="category") }}
+            {% if form.category.errors %}
+                {% for error in form.category.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Main Image (Leave blank if you don't want to change)</label>
+            {% if product.image_url %}
+                <div class="main-image-preview mb-2">
+                    <img src="{{ url_for('static', filename='images/' + product.image_url) }}" alt="{{ product.name }}">
+                </div>
+            {% endif %}
+            {{ form.image(class="form-control", id="image") }}
+            {% if form.image.errors %}
+                {% for error in form.image.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="thumbnails" class="form-label">Thumbnails (Selecting new images will replace the old ones)</label>
+            {% if product.images %}
+                <div class="thumbnail-preview mb-2">
+                    <p>Current Thumbnails:</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for image in product.images %}
+                            <img src="{{ url_for('static', filename='images/' + image.image_url) }}" alt="Thumbnail">
+                        {% endfor %}
+                    </div>
+                </div>
+            {% else %}
+                <p>No thumbnails available.</p>
+            {% endif %}
+            {{ form.thumbnails(class="form-control", id="thumbnails") }}
+            {% if form.thumbnails.errors %}
+                {% for error in form.thumbnails.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="{{ url_for('admin_products') }}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

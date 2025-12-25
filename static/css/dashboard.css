@@ -1,0 +1,241 @@
+/* Định dạng chung cho trang dashboard */
+.container {
+    padding: 20px;
+    max-width: 1400px; /* Tăng max-width để chứa thêm cột */
+    margin: 0 auto;
+}
+
+/* Định dạng thẻ card */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    background: #fff;
+    border: none;
+}
+
+/* Định dạng tiêu đề */
+h1, h3 {
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+/* Định dạng nút */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545, #b02a37);
+    border: none;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #b02a37, #dc3545);
+    transform: scale(1.05);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #218838);
+    border: none;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #218838, #28a745);
+    transform: scale(1.05);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    border: none;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #212529;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #e0a800, #ffc107);
+    transform: scale(1.05);
+}
+
+/* Định dạng thông báo lỗi */
+.error-message {
+    color: #e74c3c;
+    font-style: italic;
+    margin-top: 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+}
+
+/* Định dạng biểu đồ cột doanh thu */
+.revenue-chart-wrapper {
+    display: flex;
+    position: relative;
+    height: 250px; /* Chiều cao tối đa của khu vực biểu đồ */
+    padding-left: 80px; /* Khoảng cách cho trục Y */
+}
+
+.y-axis {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 200px; /* Chiều cao của trục Y */
+    width: 60px;
+    border-right: 1px solid #e0e0e0;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #666;
+}
+
+.y-tick {
+    position: absolute;
+    left: 0;
+    transform: translateY(-50%);
+    text-align: right;
+    padding-right: 10px;
+}
+
+.revenue-chart {
+    display: flex;
+    justify-content: center; /* Căn giữa các cột */
+    align-items: flex-end;
+    height: 200px; /* Chiều cao của biểu đồ */
+    width: 100%;
+    gap: 10px; /* Khoảng cách giữa các cột */
+    position: relative;
+    border-bottom: 1px solid #e0e0e0; /* Đường kẻ trục X */
+}
+
+.revenue-column {
+    text-align: center;
+    flex: 0 0 auto; /* Không co giãn cột, giữ kích thước cố định */
+    width: 50px; /* Chiều rộng cố định cho mỗi cột */
+    position: relative;
+}
+
+.bar {
+    background: linear-gradient(180deg, #74b9ff 0%, #3498db 100%); /* Gradient màu cột */
+    border: none;
+    width: 30px; /* Chiều rộng cột */
+    margin: 0 auto;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 4px 4px 0 0; /* Bo góc trên của cột */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng nhẹ */
+}
+
+.bar:hover {
+    transform: translateY(-5px); /* Hiệu ứng nâng cột khi hover */
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3), 0 0 10px rgba(52, 152, 219, 0.5); /* Hiệu ứng ánh sáng */
+}
+
+.amount {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+    font-weight: 500;
+}
+
+.date {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Định dạng bảng đơn hàng */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+    white-space: nowrap; /* Ngăn tiêu đề xuống dòng */
+}
+
+.table td {
+    color: #666;
+    vertical-align: middle;
+}
+
+.table td ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.table td ul li {
+    margin-bottom: 5px;
+}
+
+/* Định dạng badge trạng thái */
+.badge {
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.badge-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+    color: #fff;
+}

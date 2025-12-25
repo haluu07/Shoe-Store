@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}" />
+    <title>Login Page | Caged coder</title>
+  </head>
+
+  <body>
+    <div class="container" id="container">
+      <!-- Form đăng ký -->
+      <div class="form-container sign-up">
+        <form action="{{ url_for('auth') }}" method="POST">
+          <h1>Create Account</h1>
+          <div class="social-icons">
+            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email for registration</span>
+          {{ register_form.hidden_tag() }}
+          <input type="hidden" name="form_type" value="register" />
+          {{ register_form.name(placeholder="Name", class="input-field") }}
+          {{ register_form.email(placeholder="Email", class="input-field") }}
+          {{ register_form.username(placeholder="Username", class="input-field") }}
+          {{ register_form.password(placeholder="Password", class="input-field") }}
+          {{ register_form.confirm_password(placeholder="Confirm Password", class="input-field") }}
+          {{ register_form.submit(class="btn btn-primary") }}
+        </form>
+      </div>
+
+      <!-- Form đăng nhập -->
+      <div class="form-container sign-in">
+        <form action="{{ url_for('auth') }}" method="POST">
+          <h1>Sign In</h1>
+          <div class="social-icons">
+            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email password</span>
+          {{ login_form.hidden_tag() }}
+          <input type="hidden" name="form_type" value="login" />
+          {{ login_form.username(placeholder="Username", class="input-field") }}
+          {{ login_form.password(placeholder="Password", class="input-field") }}
+          <a href="#">Forget Your Password?</a>
+          {{ login_form.submit(class="btn btn-primary") }}
+        </form>
+      </div>
+
+      <!-- Toggle panels -->
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="toggle-panel toggle-left">
+            <h1>Welcome Back!</h1>
+            <p>Enter your personal details to use all of site features</p>
+            <button class="hidden" id="login">Sign In</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+            <h1>Hello, Friend!</h1>
+            <p>Register with your personal details to use all of site features</p>
+            <button class="hidden" id="register">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hiển thị flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

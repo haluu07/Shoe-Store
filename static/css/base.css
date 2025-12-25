@@ -1,0 +1,285 @@
+
+/* Header */
+.header {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.top-bar {
+    background: #f8f8f8;
+    padding: 5px 0;
+    font-size: 12px;
+}
+
+.top-link {
+    color: #333;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.top-link:hover {
+    color: #e67e22;
+}
+
+.flag-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.navbar {
+    padding: 10px 0;
+    background: #fff; /* Nền trắng cho navbar */
+}
+
+/* Điều chỉnh container-fluid để không có padding bên trái */
+.navbar .container-fluid {
+    padding-left: 0;
+    padding-right: 15px; /* Giữ padding bên phải để cân đối */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa logo và chữ */
+    margin-left: 0; /* Bỏ margin bên trái */
+    padding-left: 0; /* Bỏ padding bên trái */
+}
+
+.navbar-brand img.logo {
+    height: 40px; /* Chiều cao logo */
+    width: auto; /* Giữ tỷ lệ khung hình */
+    max-width: 150px; /* Giới hạn chiều rộng tối đa */
+}
+
+.navbar-brand .brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover .brand-name {
+    color: #e67e22;
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+.nav-link {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #e67e22;
+}
+
+/* Dropdown styles */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Hiển thị dropdown khi hover */
+    margin-top: 0; /* Bỏ khoảng cách trên cùng */
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.dropdown-item {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: #f8f8f8;
+    color: #e67e22;
+}
+
+/* Search bar styles */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Khoảng cách giữa search bar và icons */
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-form {
+    position: relative;
+    width: 200px; /* Chiều rộng thanh tìm kiếm */
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 40px 8px 15px; /* Padding để chừa chỗ cho biểu tượng kính lúp */
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Bo góc */
+    background: #f1f3f4; /* Nền xám nhạt */
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #e67e22;
+}
+
+.search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    width: 30px; /* Tăng vùng hover */
+    height: 30px; /* Tăng vùng hover */
+    border-radius: 50%; /* Bo góc cho nút */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.search-btn:hover {
+    color: #e67e22;
+    background: #e67e22; /* Thêm nền khi hover */
+    color: #fff; /* Đổi màu biểu tượng thành trắng */
+}
+
+.search-btn i {
+    color: inherit; /* Đảm bảo biểu tượng kế thừa màu từ .search-btn */
+}
+
+/* Search results */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 700px; /* Chiều rộng để hiển thị nhiều sản phẩm */
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px; /* Bo góc mượt mà */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Bóng đổ nhẹ */
+    z-index: 1000;
+    display: none;
+    padding: 20px; /* Tăng padding để thoáng hơn */
+    max-height: 400px; /* Giới hạn chiều cao tối đa */
+    overflow-y: auto; /* Thêm thanh cuộn nếu nội dung dài */
+}
+
+.products h6 {
+    font-size: 16px; /* Kích thước font */
+    font-weight: 700; /* Đậm hơn */
+    color: #333;
+    margin-bottom: 15px; /* Khoảng cách dưới */
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee; /* Đường viền dưới */
+    padding-bottom: 5px;
+}
+
+.search-product {
+    display: flex;
+    align-items: center;
+    padding: 8px 0; /* Giảm padding để các phần tử gần nhau hơn */
+    border-bottom: 1px solid #f0f0f0; /* Viền nhẹ nhàng */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu nền */
+}
+
+.search-product:last-child {
+    border-bottom: none;
+}
+
+.search-product a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+}
+
+.search-product img {
+    width: 60px; /* Kích thước hình ảnh */
+    height: 60px;
+    object-fit: cover;
+    margin-right: -300px; /* Giảm khoảng cách giữa hình ảnh và nội dung */
+    border-radius: 6px; /* Bo góc hình ảnh */
+    border: 1px solid #eee; /* Viền nhẹ cho hình ảnh */
+}
+
+.search-product .product-info {
+    flex-grow: 1;
+}
+
+.search-product .product-name {
+    font-size: 15px; /* Kích thước font */
+    font-weight: 600; /* Đậm hơn */
+    margin: 0;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.search-product .product-price {
+    font-size: 13px; /* Kích thước font */
+    font-weight: 500;
+    color: #e67e22;
+    margin: 2px 0 0 0; /* Giảm khoảng cách trên */
+}
+
+.search-product:hover {
+    background-color: #f8f9fa; /* Màu nền khi hover */
+    border-radius: 4px; /* Bo góc nhẹ khi hover */
+}
+
+.search-product:hover .product-name {
+    color: #e67e22; /* Đổi màu tên sản phẩm khi hover */
+}
+
+/* Giữ nguyên các style khác */
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-icon {
+    color: #333;
+    font-size: 18px;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-icon:hover {
+    color: #e67e22;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #e67e22;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 50%;
+    padding: 2px 6px;
+}
+

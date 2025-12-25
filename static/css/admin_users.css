@@ -1,0 +1,233 @@
+/* Admin Users Page (admin_users.html) */
+.admin-users-container {
+    padding: 30px 0;
+}
+
+.admin-users-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.table-users {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.table-users th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 600;
+    padding: 15px;
+    text-align: center;
+}
+
+.table-users td {
+    padding: 15px;
+    vertical-align: middle;
+    color: #333;
+    text-align: center;
+}
+
+.table-users tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
+
+.table-users .btn-edit {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.table-users .btn-edit:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+.table-users .btn-delete {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.table-users .btn-delete:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.table-users .btn-back {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.table-users .btn-back:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Edit User Page (edit_user.html) */
+.edit-user-container {
+    padding: 30px 0;
+}
+
+.edit-user-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.edit-user-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.edit-user-form .form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.edit-user-form .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit-user-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+.edit-user-form .form-check {
+    margin-top: 15px;
+}
+
+.edit-user-form .form-check-input {
+    margin-top: 0.3rem;
+}
+
+.edit-user-form .form-check-label {
+    margin-left: 8px;
+    color: #333;
+    font-size: 1rem;
+}
+
+.edit-user-form .btn-update {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-user-form .btn-update:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.edit-user-form .btn-cancel {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.edit-user-form .btn-cancel:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Alert styles (for both pages) */
+.alert {
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .admin-users-container,
+    .edit-user-container {
+        padding: 20px 10px;
+    }
+
+    .admin-users-container h2,
+    .edit-user-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .table-users th,
+    .table-users td {
+        padding: 10px;
+        font-size: 0.875rem;
+    }
+
+    .table-users .btn-edit,
+    .table-users .btn-delete {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+
+    .table-users .btn-back {
+        padding: 6px 12px;
+        font-size: 0.875rem;
+    }
+
+    .edit-user-form {
+        padding: 20px;
+    }
+
+    .edit-user-form .form-control {
+        font-size: 0.875rem;
+        padding: 8px;
+    }
+
+    .edit-user-form .btn-update,
+    .edit-user-form .btn-cancel {
+        padding: 8px 16px;
+        font-size: 0.875rem;
+    }
+}

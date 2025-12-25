@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Checkout{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/checkout.css') }}" />
+<div class="container checkout-page mt-5">
+    <h1 class="checkout-title">Checkout</h1>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card checkout-card">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Select Payment Method</h3>
+                    <div class="payment-methods">
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="payment_method" id="internet_banking" value="internet_banking" checked>
+                            <label class="form-check-label" for="internet_banking">
+                                Internet Banking
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="payment_method" id="visa_mastercard" value="visa_mastercard">
+                            <label class="form-check-label" for="visa_mastercard">
+                                Visa/Mastercard
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Section for displaying QR code or card form -->
+                    <div id="payment-details">
+                        <!-- QR Code for Internet Banking -->
+                        <div id="internet-banking-details" class="payment-details">
+                            <p class="text-center">Scan the QR code to pay</p>
+                            <img src="{{ url_for('static', filename='images/qr.png') }}" alt="QR Code" class="qr-code img-fluid d-block mx-auto">
+                            <p class="text-center mt-3">Total Amount: <span class="total-amount">{{ total | format_currency }}</span></p>
+                            <form method="POST" action="{{ url_for('complete_checkout') }}">
+                                <input type="hidden" name="payment_method" value="internet_banking">
+                                <button type="submit" class="btn btn-confirm-payment d-block mx-auto mt-3">Confirm Payment</button>
+                            </form>
+                        </div>
+
+                        <!-- Visa/Mastercard Form -->
+                        <div id="visa-mastercard-details" class="payment-details" style="display: none;">
+                            <form method="POST" action="{{ url_for('complete_checkout') }}">
+                                <input type="hidden" name="payment_method" value="visa_mastercard">
+                                <div class="form-group">
+                                    <label for="card_number">Card Number</label>
+                                    <input type="text" class="form-control" id="card_number" name="card_number" placeholder="1234 5678 9012 3456" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="expiry_date">Expiry Date</label>
+                                        <input type="text" class="form-control" id="expiry_date" name="expiry_date" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" class="form-control" id="cvv" name="cvv" placeholder="123" required>
+                                    </div>
+                                </div>
+                                <p class="text-center mt-3">Total Amount: <span class="total-amount">{{ total | format_currency }}</span></p>
+                                <button type="submit" class="btn btn-confirm-payment d-block mx-auto mt-3">Confirm Payment</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const internetBankingRadio = document.getElementById('internet_banking');
+        const visaMastercardRadio = document.getElementById('visa_mastercard');
+        const internetBankingDetails = document.getElementById('internet-banking-details');
+        const visaMastercardDetails = document.getElementById('visa-mastercard-details');
+
+        internetBankingRadio.addEventListener('change', () => {
+            internetBankingDetails.style.display = 'block';
+            visaMastercardDetails.style.display = 'none';
+        });
+
+        visaMastercardRadio.addEventListener('change', () => {
+            internetBankingDetails.style.display = 'none';
+            visaMastercardDetails.style.display = 'block';
+        });
+    });
+</script>
+{% endblock %}

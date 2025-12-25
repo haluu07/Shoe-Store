@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h1>Add Product</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label }}<br>
+            {{ form.name(class="form-control") }}
+            {% for error in form.name.errors %}
+            <span class="text-danger">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.price.label }} <br>
+            {{ form.price(class="form-control") }}
+           
+            {% for error in form.price.errors %}
+            <span class="text-danger">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.description.label }}<br>
+            {{ form.description(class="form-control") }}
+            {% for error in form.description.errors %}
+            <span class="text-danger">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.category.label }}<br>
+            {{ form.category(class="form-control") }}
+            {% for error in form.category.errors %}
+            <span class="text-danger">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.image.label }}<br>
+            {{ form.image(class="form-control-file") }}
+            {% for error in form.image.errors %}
+            <span class="text-danger">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.thumbnails.label }}<br>
+            {{ form.thumbnails(class="form-control-file", multiple="multiple") }}
+            <small class="form-text text-muted">Select multiple thumbnail images (up to 4 images).</small>
+            {% for error in form.thumbnails.errors %}
+            <span class="text-danger">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

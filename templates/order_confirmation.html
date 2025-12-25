@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Xác nhận đơn hàng{% endblock %}
+{% block content %}
+<div class="container order-confirmation-page mt-5 text-center">
+    <div class="confirmation-content">
+        <img src="{{ url_for('static', filename='images/order.png') }}" alt="Order Received Icon" class="confirmation-icon">
+        <h1 class="confirmation-title">Order Received</h1>
+        <p class="confirmation-message">Thanks For Ordering</p>
+        <p class="confirmation-note">Your order is pending approval. We will contact you soon!</p>
+    </div>
+</div>
+{% endblock %}

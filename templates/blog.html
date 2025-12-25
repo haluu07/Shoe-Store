@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Shoe Blog{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}" />
+{% endblock %}
+{% block content %}
+<div class="blog-container">
+    <h1 class="blog-title">Shoe Blog</h1>
+    <p class="blog-subtitle">Explore the world of shoes with interesting articles and the latest updates!</p>
+    <div class="blog-posts">
+        {% for post in posts %}
+        <div class="blog-post">
+            <div class="post-content">
+                <h2 class="post-title">{{ post.title }}</h2>
+                <p class="post-meta">Posted on: {{ post.date }} | Author: {{ post.author }}</p>
+                <p class="post-excerts">{{ post.excerpt }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

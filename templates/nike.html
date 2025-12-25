@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/category.css') }}" />
+<div class="container mt-4 category-page">
+    <h1>Nike Shoes</h1>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4">
+            <div class="category-product">
+                <a href="{{ url_for('product_detail', id=product.id) }}">
+                    {% if product.image_url %}
+                    <img src="{{ url_for('static', filename='images/' + product.image_url) }}" alt="{{ product.name }}">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='images/default_shoe.jpg') }}" alt="Default Shoe">
+                    {% endif %}
+                </a>
+                <div class="category-product-info">
+                    <h5>{{ product.name }}</h5>
+                    <p>{{ product.description }}</p>
+                    <div class="category-product-actions">
+                        <p class="category-price">
+                            <span>{{ product.price | format_currency }}</span>
+                        </p>
+                        <div class="category-product-buttons">
+                            <a href="{{ url_for('product_detail', id=product.id) }}" class="category-btn-primary">Buy Now</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

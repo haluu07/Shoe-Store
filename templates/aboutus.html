@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<div class="aboutus-container">
+    <h1 class="aboutus-title">About Us</h1>
+    <p class="aboutus-subtitle">Welcome to Linh Shoe - Your Ideal Destination for Trendy Sneakers!</p>
+    <div class="aboutus-content">
+        <div class="aboutus-section">
+            <h2>Who We Are</h2>
+            <p>Linh Shoe is a store specializing in providing stylish and high-quality sneakers from renowned brands such as Nike, Adidas, and Jordan. We are committed to offering you authentic products that are trendy and suitable for every personality.</p>
+        </div>
+        <div class="aboutus-section">
+            <h2>Our Mission</h2>
+            <p>We aim to be your trusted companion on the journey to discovering your unique style. With a passionate team and dedicated customer service, Linh Shoe is always ready to serve you.</p>
+        </div>
+        <div class="aboutus-section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out to us via email at <a href="mailto:support@linhshoe.com">support@linhshoe.com</a> or by phone at 0123 456 789.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .aboutus-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    .aboutus-title {
+        text-align: center;
+        color: #333;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .aboutus-subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+    }
+
+    .aboutus-section {
+        margin-bottom: 30px;
+    }
+
+    .aboutus-section h2 {
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .aboutus-section p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .aboutus-section a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .aboutus-section a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

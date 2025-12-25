@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/product_detail.css') }}" />
+<div class="container mt-5 product-detail-page">
+    <div class="row">
+        <!-- Product images section -->
+        <div class="col-md-6">
+            <div class="product-images">
+                <!-- Thumbnails -->
+                <div class="thumbnails">
+                    <!-- Display main image first -->
+                    <div class="thumbnail-wrapper">
+                        <img src="{{ url_for('static', filename='images/' + product.image_url) }}" alt="{{ product.name }}" class="thumbnail active">
+                    </div>
+                    <!-- Display thumbnail images -->
+                    {% if product.images and product.images|length > 0 %}
+                        {% for image in product.images[:3] %}
+                            <div class="thumbnail-wrapper">
+                                <img src="{{ url_for('static', filename='images/' + image.image_url) }}" alt="{{ product.name }}" class="thumbnail">
+                            </div>
+                        {% endfor %}
+                        <!-- If there are not enough 4 images, repeat the main image -->
+                        {% for i in range(3 - product.images|length) %}
+                            <div class="thumbnail-wrapper">
+                                <img src="{{ url_for('static', filename='images/' + product.image_url) }}" alt="{{ product.name }}" class="thumbnail">
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <!-- If there are no thumbnail images, repeat the main image -->
+                        <div class="thumbnail-wrapper">
+                            <img src="{{ url_for('static', filename='images/' + product.image_url) }}" alt="{{ product.name }}" class="thumbnail">
+                        </div>
+                        <div class="thumbnail-wrapper">
+                            <img src="{{ url_for('static', filename='images/' + product.image_url) }}" alt="{{ product.name }}" class="thumbnail">
+                        </div>
+                        <div class="thumbnail-wrapper">
+                            <img src="{{ url_for('static', filename='images/' + product.image_url) }}" alt="{{ product.name }}" class="thumbnail">
+                        </div>
+                    {% endif %} 
+                </div>
+                <!-- Main image -->
+                <div class="main-image">
+                    <img src="{{ url_for('static', filename='images/' + product.image_url) }}" alt="{{ product.name }}" id="mainImage">
+                </div>
+            </div>
+        </div>
+        <!-- Product details section -->
+        <div class="col-md-6 product-details">
+            <h1>{{ product.name }}</h1>
+            <div class="rating">
+                <span class="stars">★★★★★</span>
+                <span class="score">(4.8)</span>
+            </div>
+            <p class="price">{{ product.price | format_currency }}</p>
+            <p class="description">{{ product.description }}</p>
+
+            <!-- Size selection -->
+            <div class="size-selection">
+                <label>Select Size</label>
+                <div class="sizes">
+                    <button class="size-btn" data-size="S">3.5 UK</button>
+                    <button class="size-btn" data-size="M">4 UK</button>
+                    <button class="size-btn" data-size="L">4.5 UK</button>
+                    <button class="size-btn" data-size="XL">5 UK</button>
+                    <button class="size-btn" data-size="XXL">5.5 UK</button>
+                </div>
+            </div>
+
+            <!-- Add to Cart button -->
+            <form method="POST" action="{{ url_for('add_to_cart', product_id=product.id) }}">
+                <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+            </form>
+            <hr>
+            <!-- Additional information -->
+            <div class="additional-info">
+                <p>100% Original Product.</p>
+                <p>Easy return and exchange policy within 14 days.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to handle images and selections -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Handle thumbnails
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const mainImage = document.getElementById('mainImage');
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumbnail.classList.add('active');
+                mainImage.src = thumbnail.src;
+            });
+        });
+
+        // Handle size selection
+        const sizeButtons = document.querySelectorAll('.size-btn');
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sizeButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+
+        // Handle color selection
+        const colorButtons = document.querySelectorAll('.color-btn');
+        colorButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                colorButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                // Change main image based on color
+                const index = button.getAttribute('data-color');
+                const thumbnail = document.querySelectorAll('.thumbnail')[index];
+                if (thumbnail) {
+                    mainImage.src = thumbnail.src;
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}

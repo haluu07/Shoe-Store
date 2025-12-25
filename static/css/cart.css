@@ -1,0 +1,152 @@
+.cart-page {
+    padding: 20px 0;
+}
+
+.cart-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cart-table {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-table th {
+    background: #f8f8f8;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    padding: 15px;
+}
+
+.cart-table td {
+    vertical-align: middle;
+    padding: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.cart-product-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-input {
+    width: 60px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+}
+
+.quantity-decrease,
+.quantity-increase {
+    background: linear-gradient(135deg, #e67e22, #c85e00);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.quantity-decrease:hover,
+.quantity-increase:hover {
+    background: linear-gradient(135deg, #c85e00, #e67e22);
+    transform: scale(1.05);
+}
+
+.cart-table .btn-danger {
+    background: linear-gradient(135deg, #dc3545, #b02a37);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cart-table .btn-danger:hover {
+    background: linear-gradient(135deg, #b02a37, #dc3545);
+    transform: scale(1.05);
+}
+
+.cart-summary h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cart-total {
+    color: #e67e22;
+    font-weight: 700;
+}
+
+.btn-checkout {
+    background: linear-gradient(135deg, #28a745, #218838);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-checkout:hover {
+    background: linear-gradient(135deg, #218838, #28a745);
+    transform: scale(1.05);
+}
+
+.empty-cart {
+    padding: 50px 0;
+}
+
+.empty-cart i {
+    color: #ccc;
+}
+
+.empty-cart h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.empty-cart p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.empty-cart .btn-primary {
+    background: linear-gradient(135deg, #e67e22, #c85e00);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.empty-cart .btn-primary:hover {
+    background: linear-gradient(135deg, #c85e00, #e67e22);
+    transform: scale(1.05);
+}

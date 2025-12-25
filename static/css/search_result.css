@@ -1,0 +1,116 @@
+/* Search Results Page */
+.search-results-page {
+    padding: 20px 0;
+}
+
+.search-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+.search-header p {
+    font-size: 16px;
+    color: #666;
+}
+
+.product-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.product-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.product-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #e67e22; /* Màu cam */
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: 500;
+    color: #007bff; /* Màu xanh dương */
+    margin-bottom: 15px;
+}
+
+.btn-buy-now {
+    background: #007bff; /* Màu xanh dương */
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-buy-now:hover {
+    background: #0056b3; /* Màu xanh dương đậm hơn khi hover */
+    transform: scale(1.05);
+}
+
+.no-results {
+    padding: 50px 0;
+}
+
+.no-results i {
+    color: #ccc;
+}
+
+.no-results h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.no-results p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.no-results .btn-primary {
+    background: linear-gradient(135deg, #e67e22, #c85e00);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.no-results .btn-primary:hover {
+    background: linear-gradient(135deg, #c85e00, #e67e22);
+    transform: scale(1.05);
+}

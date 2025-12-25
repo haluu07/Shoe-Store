@@ -1,0 +1,219 @@
+/* Product Detail Page */
+.product-detail-page {
+    margin: 50px auto;
+    padding: 20px 0;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.product-images {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100px;
+}
+
+.thumbnail-wrapper {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.thumbnail.active {
+    opacity: 1;
+    border: 2px solid #e67e22;
+}
+
+.thumbnail:not(.active) {
+    opacity: 0.6;
+}
+
+.main-image {
+    flex-grow: 1;
+    position: relative;
+}
+
+.main-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-arrow {
+    left: 10px;
+}
+
+.next-arrow {
+    right: 10px;
+}
+
+.hidden {
+    display: none; /* Ẩn hình ảnh thumbnail trong LightGallery */
+}
+
+.product-details {
+    padding: 20px;
+}
+
+.product-details h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #f39c12;
+    font-size: 18px;
+}
+
+.score {
+    color: #666;
+    font-size: 14px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.size-selection,
+.color-selection {
+    margin-bottom: 20px;
+}
+
+.size-selection label,
+.color-selection label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.sizes,
+.colors {
+    display: flex;
+    gap: 10px;
+}
+
+.size-btn {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+.size-btn.active,
+.size-btn:hover {
+    background: #e67e22;
+    border-color: #e67e22;
+    color: white;
+}
+
+.color-btn {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border 0.3s ease;
+}
+
+.color-btn.active,
+.color-btn:hover {
+    border: 2px solid #e67e22;
+}
+
+.add-to-cart-btn {
+    background: linear-gradient(135deg, #e67e22, #c85e00);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(230, 126, 34, 0.3);
+    width: 100%;
+    text-align: center;
+}
+
+.add-to-cart-btn:hover {
+    background: linear-gradient(135deg, #c85e00, #e67e22);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.5);
+}
+
+.additional-info {
+    margin-top: 20px;
+}
+
+.additional-info p {
+    color: #666;
+    font-size: 14px;
+    margin: 5px 0;
+}

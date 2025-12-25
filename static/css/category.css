@@ -1,0 +1,164 @@
+/* Category Pages (Nike, Jordan, Adidas) */
+.category-page {
+    text-align: center;
+    margin: 50px 0;
+    padding: 20px 0;
+}
+
+.category-page h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.category-product {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px; /* Đặt chiều cao tối thiểu */
+    height: 400px; /* Đặt chiều cao cố định để các thẻ bằng nhau */
+    border: 1px solid #f0f0f0;
+}
+
+.category-product img {
+    width: 100%;
+    height: 200px; /* Chiều cao cố định cho hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh vừa khung mà không bị méo */
+    border-radius: 15px 15px 0 0;
+    transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.category-product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.category-product:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+.category-product-info {
+    margin-top: 15px;
+    padding: 0 10px;
+    flex-grow: 1; /* Đảm bảo phần nội dung chiếm hết không gian còn lại */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Căn chỉnh nội dung từ trên xuống */
+    height: 150px; /* Đặt chiều cao cố định cho phần nội dung */
+}
+
+.category-product-info h5 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 8px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Giới hạn tiêu đề tối đa 2 dòng */
+    line-clamp: 2; /* Standard property for compatibility */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 60px; /* Đặt chiều cao cố định cho tiêu đề */
+    line-height: 30px; /* Đảm bảo chiều cao dòng phù hợp */
+}
+
+.category-product:hover .category-product-info h5 {
+    color: #e67e22;
+    transform: translateY(-2px);
+}
+
+.category-product-info p {
+    color: #666;
+    font-size: 14px;
+    margin: 5px 0 10px;
+    line-height: 1.5;
+    max-height: 60px; /* Giới hạn chiều cao mô tả */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.category-price {
+    font-weight: 700;
+    color: #e67e22;
+    font-size: 20px;
+    margin: 10px 0; /* Điều chỉnh khoảng cách */
+    transition: transform 0.3s ease;
+}
+
+.category-product:hover .category-price {
+    transform: scale(1.05);
+}
+
+.category-product-actions {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 10px; /* Khoảng cách dưới cùng */
+}
+
+.category-product:hover .category-product-actions {
+    opacity: 1;
+}
+
+.category-product-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.category-btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+}
+
+.category-btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff);
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5);
+}
+
+.category-add-to-cart-btn {
+    background: linear-gradient(135deg, #e67e22, #c85e00);
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(230, 126, 34, 0.3);
+}
+
+.category-add-to-cart-btn:hover {
+    background: linear-gradient(135deg, #c85e00, #e67e22);
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.5);
+}

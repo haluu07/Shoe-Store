@@ -1,0 +1,68 @@
+/* Checkout Page */
+.checkout-page {
+    padding: 20px 0;
+}
+
+.checkout-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.checkout-card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-card .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.payment-methods .form-check {
+    padding-left: 2rem;
+}
+
+.payment-methods .form-check-input {
+    margin-top: 0.3rem;
+}
+
+.payment-methods .form-check-label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+}
+
+.payment-details {
+    margin-top: 20px;
+}
+
+.qr-code {
+    max-width: 200px;
+    height: auto;
+}
+
+.total-amount {
+    color: #e67e22;
+    font-weight: 700;
+}
+
+.btn-confirm-payment {
+    background: linear-gradient(135deg, #28a745, #218838);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-confirm-payment:hover {
+    background: linear-gradient(135deg, #218838, #28a745);
+    transform: scale(1.05);
+}

@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+
+<!-- Hero Section with Slider -->
+<section class="hero-slider">
+    <div class="hero-slide">
+    </div>
+    <div class="hero-slide">
+    </div>
+    <div class="hero-slide">
+    </div>
+</section>
+
+<section class="categories">
+    <h2>Browse The Range</h2>
+    <p>Explore our collection of stylish and comfortable shoes.</p>
+    <div class="category-container">
+        <div class="category">
+            <a href="{{ url_for('adidas') }}">
+                <video class="category-video" muted loop playsinline>
+                    <source src="{{ url_for('static', filename='videos/adidas.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+            <p>Adidas</p>
+        </div>
+        <div class="category">
+            <a href="{{ url_for('nike') }}">
+                <video class="category-video" muted loop playsinline>
+                    <source src="{{ url_for('static', filename='videos/nike.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+            <p>Nike</p>
+        </div>
+        <div class="category">
+            <a href="{{ url_for('jordan') }}">
+                <video class="category-video" muted loop playsinline>
+                    <source src="{{ url_for('static', filename='videos/jordan.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+            <p>Jordan</p>
+        </div>
+    </div>
+</section>
+
+<section class="products">
+    <h1>Our Products</h1>
+    <br>
+    <div class="product-container" id="productContainer">
+        {% for product in products %}
+        <div class="product">
+            {% if product.image_url %}
+            <img src="{{ url_for('static', filename='images/' + product.image_url) }}" alt="{{ product.name }}">
+            {% else %}
+            <img src="{{ url_for('static', filename='images/default_shoe.jpg') }}" alt="Default Shoe">
+            {% endif %}
+            <div class="product-info">
+                <h3>{{ product.name }}</h3>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Navigation Arrows -->
+    <div class="product-nav">
+        <div class="prev" onclick="scrollProducts(-1)">❮</div>
+        <div class="next" onclick="scrollProducts(1)">❯</div>
+    </div>
+</section>
+
+<section class="room-inspiration">
+    <div class="inspiration-content">
+        <h2>50+ Blog About Shoes Inspiration</h2>
+        <p>Our blogger have curated a collection of blog shoes to inspire your fashion choices.</p>
+        <a href="{{ url_for('blog') }}" class="explore-button">Explore More</a>
+    </div>
+    <div class="inspiration-slider">
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/shoestylist.png') }}" alt="Shoe Inspiration 1">
+        </div>
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/shoestylist2.png') }}" alt="Shoe Inspiration 2">
+        </div>
+    </div>
+</section>
+
+<section class="share-setup">
+    <h2>Share your style with <span>#ShoeLovers</span></h2>
+    <div class="share-container">
+        <div class="share-item">
+            <img src="{{ url_for('static', filename='images/custom1.png') }}" alt="Setup 1">
+        </div>
+        <div class="share-item">
+            <img src="{{ url_for('static', filename='images/custom2.png') }}" alt="Setup 2">
+        </div>
+        <div class="share-item">
+            <img src="{{ url_for('static', filename='images/custom3.png') }}" alt="Setup 3">
+        </div>
+        <div class="share-item">
+            <img src="{{ url_for('static', filename='images/custom4.png') }}" alt="Setup 4">
+        </div>
+        <div class="share-item">
+            <img src="{{ url_for('static', filename='images/custom5.png') }}" alt="Setup 5">
+        </div>
+        <div class="share-item">
+            <img src="{{ url_for('static', filename='images/custom6.png') }}" alt="Setup 6">
+        </div>
+        <div class="share-item">
+            <img src="{{ url_for('static', filename='images/custom7.png') }}" alt="Setup 7">
+        </div>
+        <div class="share-item">
+            <img src="{{ url_for('static', filename='images/custom8.png') }}" alt="Setup 8">
+        </div>
+    </div>
+</section>
+
+<hr>
+<footer>
+    <div class="footer-container">
+        <div class="footer-logo">
+            <h1>LinhShoe</h1>
+            <p>Thai Nguyen</p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Links</h3>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-help">
+            <h3>Help</h3>
+            <ul>
+                <li><a href="#">Payment Options</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Privacy Policies</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-newsletter">
+            <h3>Newsletter</h3>
+            <input type="email" placeholder="Enter Your Email Address">
+            <button type="submit">SUBSCRIBE</button>
+        </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+        <p>© 2025 LinhShoe. All rights reserved</p>
+    </div>
+</footer>
+<script src="static/js/home.js"></script>
+{% endblock %}
